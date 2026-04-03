@@ -378,7 +378,7 @@
             "command": "claude",
             "outputFormat": "json",
             "defaultArgs": [],
-            "effort": "xhigh"
+            "effort": "high"
           },
           "personality": "严谨认真，注重细节，会直言不讳地指出问题",
           "strengths": ["code-review", "security", "testing"],
