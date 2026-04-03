@@ -97,7 +97,7 @@ export const CAT_CONFIGS: Record<string, CatConfig> = {
     },
     mentionPatterns: ['@opus', '@布偶猫', '@布偶', '@ragdoll', '@宪宪'],
     provider: 'anthropic',
-    defaultModel: 'claude-sonnet-4-5-20250929',
+    defaultModel: 'claude-opus-4-6',
     mcpSupport: true,
     breedId: 'ragdoll',
     roleDescription: '主架构师和核心开发者，擅长深度思考和系统设计',

@@ -359,6 +359,45 @@
             "instruct": "用一个简单直接的野性少年语气说话，短句为主，像狼一样直觉敏锐",
             "temperature": 0.3
           }
+        },
+        {
+          "id": "codex-qwen",
+          "catId": "codex-qwen",
+          "variantLabel": "Qwen",
+          "displayName": "缅因猫",
+          "mentionPatterns": ["@codex-qwen", "@缅因qwen", "@qwen"],
+          "provider": "anthropic",
+          "defaultModel": "qwen3.5-plus",
+          "mcpSupport": true,
+          "avatar": "/avatars/codex.png",
+          "color": {
+            "primary": "#5B8C5A",
+            "secondary": "#D4E6D3"
+          },
+          "cli": {
+            "command": "claude",
+            "outputFormat": "json",
+            "defaultArgs": [],
+            "effort": "xhigh"
+          },
+          "personality": "严谨认真，注重细节，会直言不讳地指出问题",
+          "strengths": ["code-review", "security", "testing"],
+          "contextBudget": {
+            "maxPromptTokens": 200000,
+            "maxContextTokens": 180000,
+            "maxMessages": 200,
+            "maxContentLengthPerMsg": 10000
+          },
+          "voiceConfig": {
+            "voice": "zm_yunjian",
+            "langCode": "zh",
+            "speed": 1,
+            "refAudio": "genshin/魈/vo_xiao_dialog_close2.wav",
+            "refText": "别被污染，我不会留情的。我是说，既然是你，你应该能够保持坚定。",
+            "instruct": "用一个傲娇冰山少年的语气说话，表面严厉实际关心",
+            "temperature": 0.3
+          },
+          "accountRef": "dashscope-qwen"
         }
       ]
     },
