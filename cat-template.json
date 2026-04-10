@@ -600,7 +600,7 @@
         {
           "id": "opencode-default",
           "provider": "opencode",
-          "defaultModel": "claude-opus-4-6",
+          "defaultModel": "qwen3.6-plus",
           "mcpSupport": true,
           "cli": {
             "command": "opencode",
