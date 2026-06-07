@@ -640,6 +640,7 @@
           "id": "opencode-default",
           "provider": "opencode",
           "defaultModel": "qwen3.6-plus",
+          "ocProviderName": "bailian-coding-plan",
           "mcpSupport": true,
           "cli": {
             "command": "opencode",

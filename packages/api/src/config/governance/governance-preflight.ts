@@ -94,24 +94,24 @@ export async function checkGovernancePreflight(
     };
   }
 
-  let hasSkillsLink = false;
+  let hasSkillsDir = false;
   for (const dir of skillsDirs) {
     try {
       const stat = await lstat(join(projectPath, dir));
-      if (stat.isSymbolicLink()) {
-        hasSkillsLink = true;
+      if (stat.isSymbolicLink() || stat.isDirectory()) {
+        hasSkillsDir = true;
         break;
       }
     } catch {
       // continue
     }
   }
-  if (!hasSkillsLink) {
+  if (!hasSkillsDir) {
     const dirLabel = govProvider ? PROVIDER_SKILLS_DIR[govProvider] : 'skills';
     return {
       ready: false,
       needsBootstrap: true,
-      reason: `No ${dirLabel} symlink in ${projectPath}. Governance bootstrap may have failed.`,
+      reason: `No ${dirLabel} directory in ${projectPath}. Governance bootstrap may have failed.`,
       bootstrapCommand: `POST /api/governance/confirm { "projectPath": "${projectPath}" }`,
     };
   }

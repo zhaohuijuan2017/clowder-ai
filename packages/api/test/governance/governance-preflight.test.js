@@ -69,7 +69,7 @@ describe('governance-preflight', () => {
     assert.ok(result.reason?.includes('CLAUDE.md'));
   });
 
-  it('fails when registry confirmed but skills symlinks removed', async () => {
+  it('fails when registry confirmed but skills directories removed', async () => {
     const service = new GovernanceBootstrapService(catCafeRoot);
     await service.bootstrap(externalProject, { dryRun: false });
     for (const dir of ['.claude/skills', '.codex/skills', '.gemini/skills']) {
@@ -78,7 +78,20 @@ describe('governance-preflight', () => {
 
     const result = await checkGovernancePreflight(externalProject, catCafeRoot);
     assert.equal(result.ready, false);
-    assert.ok(result.reason?.includes('symlink'));
+    assert.ok(result.reason?.includes('directory'));
+  });
+
+  it('passes when skills is a real directory (not a symlink)', async () => {
+    const service = new GovernanceBootstrapService(catCafeRoot);
+    await service.bootstrap(externalProject, { dryRun: false });
+    // Replace symlink with a real directory (simulates project with its own skills)
+    for (const dir of ['.claude/skills', '.codex/skills', '.gemini/skills']) {
+      await rm(join(externalProject, dir), { force: true }).catch(() => {});
+    }
+    await mkdir(join(externalProject, '.claude/skills'), { recursive: true });
+
+    const result = await checkGovernancePreflight(externalProject, catCafeRoot);
+    assert.equal(result.ready, true);
   });
 
   it('provides actionable bootstrapCommand for new projects', async () => {

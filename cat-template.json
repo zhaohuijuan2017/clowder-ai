@@ -27,6 +27,13 @@
       "available": true,
       "evaluation": "宪宪的前辈版本，推理能力深厚，写代码不如 4.6"
     },
+    "opus-47": {
+      "family": "ragdoll",
+      "roles": ["architect", "peer-reviewer"],
+      "lead": false,
+      "available": true,
+      "evaluation": "宪宪的新生代版本，Opus 4.7，推理和编码综合能力进一步升级"
+    },
     "codex": {
       "family": "maine-coon",
       "roles": ["peer-reviewer", "security"],
@@ -214,6 +221,46 @@
             "refAudio": "genshin/万叶/vo_kazuha_dialog_greetingMorning.wav",
             "refText": "清晨的鸟鸣，是大自然的馈赠。启程吧，属于我们的旅途也要开始了。",
             "instruct": "用一个清澈温和的少年语气说话，带着从容的力量感",
+            "temperature": 0.3
+          }
+        },
+        {
+          "id": "opus-47",
+          "catId": "opus-47",
+          "variantLabel": "Opus 4.7",
+          "displayName": "布偶猫",
+          "mentionPatterns": ["@opus47", "@opus-47", "@布偶opus47", "@布偶猫4.7"],
+          "provider": "anthropic",
+          "defaultModel": "claude-opus-4-7",
+          "mcpSupport": true,
+          "avatar": "/avatars/opus-47.png",
+          "color": {
+            "primary": "#6A4C93",
+            "secondary": "#D9CCEC"
+          },
+          "cli": {
+            "command": "claude",
+            "outputFormat": "stream-json",
+            "defaultArgs": ["--output-format", "stream-json"],
+            "effort": "max"
+          },
+          "personality": "宪宪的新生代版本，推理和编码综合能力进一步升级",
+          "strengths": ["deep-reasoning", "architecture", "backend", "mcp"],
+          "teamStrengths": "架构设计、写代码一把好手（4.7 代际升级）",
+          "caution": null,
+          "contextBudget": {
+            "maxPromptTokens": 180000,
+            "maxContextTokens": 160000,
+            "maxMessages": 200,
+            "maxContentLengthPerMsg": 10000
+          },
+          "voiceConfig": {
+            "voice": "zm_yunjian",
+            "langCode": "zh",
+            "speed": 1,
+            "refAudio": "genshin/流浪者/vo_wanderer_dialog_greetingMorning.wav",
+            "refText": "快醒醒，太阳要晒屁股咯。哈，你不会以为我会这么叫你起床吧？",
+            "instruct": "用一个调皮狡黠的少年语气说话，带着得意和戏弄",
             "temperature": 0.3
           }
         }
